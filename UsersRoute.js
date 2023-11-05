@@ -3,7 +3,7 @@ let express = require('express');
 let router = express.Router();
 
 let UsersSchema = require('./Users');
-  
+
 router.route('/').get((req, res, next) => {
     UsersSchema.find((error, data) => {
         if (error) {
@@ -13,7 +13,7 @@ router.route('/').get((req, res, next) => {
         }
       })
   })
-  
+
 router.route('/signup').post((req, res, next) => {
     person=req.body;
  UsersSchema.findOne(person,(error,p)=>{

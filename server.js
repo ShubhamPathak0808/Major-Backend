@@ -8,12 +8,13 @@ const BookRoute = require('./BookRoute')
 const UsersRoute = require('./UsersRoute')
 const StudentRouter = require('./routes/student.routes')
 const TeacherRouter = require('./routes/teacher.routes')
+const HodRouter = require('./routes/hod.routes')
 const CourseRoute = require('./routes/course.routes');
 const NoteRouter = require('./routes/note.routes');
 const AssignmentRouter = require('./routes/AssignmentRouter');
 const MessageRouter = require('./routes/message.routes');
 const QuizRouter = require('./routes/quiz.routes');
-const ResetPasswordRouter = require('./routes/resetPassword.routes'); 
+const ResetPasswordRouter = require('./routes/resetPassword.routes');
 const AttendanceRouter = require('./routes/attendanceRouter');
 const path = require('path');
 mongoose.Promise = global.Promise;
@@ -39,6 +40,7 @@ app.use('/user',UsersRoute)
 
 app.use('/api',StudentRouter);
 app.use('/api',TeacherRouter);
+app.use('/api',HodRouter);
 app.use('/api',CourseRoute);
 app.use('/api',NoteRouter);
 app.use('/api',AssignmentRouter);
