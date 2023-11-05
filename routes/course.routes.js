@@ -27,7 +27,7 @@ router.get("/course/:id", async(req, res) => {
         const course = await Course.findById(_id);
         if(!course)
             return res.status(404).send({success: false, data: "No courses found"});
-        
+
         res.send({success: true, data: course});
     } catch(error) {
         res.status(500).send({success: false, error});
@@ -42,7 +42,22 @@ router.get("/fetchCourse/teacher/:id", async(req, res) => {
         const courses = await Course.find({ teacher_id : _id});
         if(!courses)
             return res.status(404).send({success: false, data: "No courses found"});
-        
+
+        res.send({success: true, data: courses});
+    } catch(error) {
+        res.status(500).send({success: false, error});
+    }
+})
+
+// Fetch all courses for a particular Year
+router.get("/fetchCourse/:id", async(req, res) => {
+    const _id = req.params.id;
+
+    try {
+        const courses = await Course.find({ year : _id});
+        if(!courses)
+            return res.status(404).send({success: false, data: "No courses found"});
+
         res.send({success: true, data: courses});
     } catch(error) {
         res.status(500).send({success: false, error});
