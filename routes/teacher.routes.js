@@ -6,19 +6,19 @@ const Teacher = require("../models/teacher.model");
 const router = new express.Router();
 
 // Create new teacher
-router.post("/teachers", async (req, res) => {
-    const teacher = new Teacher(req.body);
+// router.post("/teachers", async (req, res) => {             /* check */
+//     const teacher = new Teacher(req.body);
 
-    try {
-        await teacher.save();
-        res.send({data: teacher, success: true});
-    } catch (error) {
-        console.log(error)
-        if(error.code === 11000)
-            res.send({success: false, reason: "Email already exists"});
-        res.status(400).send(error);
-    }
-})
+//     try {
+//         await teacher.save();
+//         res.send({data: teacher, success: true});
+//     } catch (error) {
+//         console.log(error)
+//         if(error.code === 11000)
+//             res.send({success: false, reason: "Email already exists"});
+//         res.status(400).send(error);
+//     }
+// })
 
 // Login teacher
 router.post("/teachers/login", async (req, res) => {
